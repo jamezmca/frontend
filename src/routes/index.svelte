@@ -13,7 +13,7 @@
 	// });
 	export async function load({ fetch, params }) {
 		//where params is url params
-		const baseUrl = `http://localhost:8008/`;
+		const baseUrl = process.env.URL || `http://localhost:8008/`;
 		const data = await Promise.all(
 			stocks.map(async (stock) => {
 				const res = await fetch(baseUrl + stock);
@@ -46,7 +46,7 @@
 	});
 
 	$: getData($StockStore);
-	console.log(stocks)
+	console.log(stocks);
 	async function getData(newTickers) {
 		const oldTickers = stocks.map((val) => Object.keys(val)[0]);
 		if (newTickers.length < oldTickers.length) {
