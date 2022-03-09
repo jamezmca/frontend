@@ -53,7 +53,7 @@
 			return (stocks = stocks.filter((val) => newTickers.includes(Object.keys(val)[0])));
 		}
 		let difference = newTickers.filter((x) => !oldTickers.includes(x));
-		const baseUrl = 'http://localhost:8008/';
+		const baseUrl = 'https://devjames.hopto.org/stocks/';
 		const data = await Promise.all(
 			difference.map(async (stock) => {
 				const res = await fetch(baseUrl + stock);
