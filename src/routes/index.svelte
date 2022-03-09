@@ -13,7 +13,7 @@
 	// });
 	export async function load({ fetch, params }) {
 		//where params is url params
-		const baseUrl = `http://devjames.hopto.org/stocks/`;
+		const baseUrl = `https://devjames.hopto.org/stocks/`;
 		const data = await Promise.all(
 			stocks.map(async (stock) => {
 				const res = await fetch(baseUrl + stock);
