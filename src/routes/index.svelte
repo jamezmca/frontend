@@ -13,10 +13,10 @@
 	// });
 	export async function load({ fetch, params }) {
 		//where params is url params
-		const baseUrl = `https://devjames.hopto.org/stocks/`;
+		const baseUrl = `https://niceleee.herokuapp.com/`;
 		const data = await Promise.all(
 			stocks.map(async (stock) => {
-				const res = await fetch(baseUrl + stock);
+				const res = await fetch(baseUrl + stock + '?key=james');
 				// const res = await fetch(`/${stock}`);
 				return await res.json();
 			})
@@ -53,10 +53,10 @@
 			return (stocks = stocks.filter((val) => newTickers.includes(Object.keys(val)[0])));
 		}
 		let difference = newTickers.filter((x) => !oldTickers.includes(x));
-		const baseUrl = 'https://devjames.hopto.org/stocks/';
+		const baseUrl = 'https://niceleee.herokuapp.com/';
 		const data = await Promise.all(
 			difference.map(async (stock) => {
-				const res = await fetch(baseUrl + stock);
+				const res = await fetch(baseUrl + stock + '?key=james');
 				return await res.json();
 			})
 		);
